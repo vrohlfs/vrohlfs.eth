@@ -1,9 +1,9 @@
 :root {
   --primary-color: #3498db; /* Blue */
   --secondary-color: #95a5a6; /* Gray */
-  --gradient-color1: #2c3e50; /* Dark Blue */
-  --gradient-color2: #bdc3c7; /* Light Gray */
   --box-shadow-color: #1abc9c; /* Green */
+  --terminal-bg: #000; /* Black background for terminal */
+  --terminal-text: #0f0; /* Green text for terminal */
 }
 
 * {
@@ -13,15 +13,9 @@
 }
 
 body {
-  background-color: #ecf0f1; /* Light Gray */
-  background: -webkit-linear-gradient(
-      rgba(44, 62, 80, 0.8),
-      /* Dark Blue */ rgba(189, 195, 199, 0.8) /* Light Gray */
-    ),
-    url("images/background-image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: "Poppins", sans-serif;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
+  font-family: "Courier New", Courier, monospace;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -31,46 +25,48 @@ body {
 
 main {
   max-width: 800px;
-  padding: 20px 50px;
+  padding: 20px;
   text-align: center;
+  width: 100%;
 }
 
 .user-img {
   border-radius: 50px;
   max-width: 100px;
-  box-shadow: 0 0 10px 3px var(--box-shadow-color);
+  border: 2px solid var(--terminal-text);
+  display: block;
+  margin: 20px auto;
 }
 
-main h1 {
-  color: var(--box-shadow-color); /* Green */
-  font-size: 1.8rem;
+h1 {
+  color: var(--terminal-text);
+  font-size: 2rem;
   margin: 1em 0 1.5em 0;
 }
 
-.link {
-  height: 50px;
-  width: 100%;
-  background-color: var(--primary-color);
-  box-shadow: 0 0 10px 3px var(--secondary-color);
-  margin-top: 1.3rem;
-  transform: skewX(-45deg);
+.links-sec {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s;
+  width: 100%;
+}
+
+.link {
+  background-color: #111;
+  border: 1px solid var(--terminal-text);
+  padding: 10px;
+  margin: 5px 0;
+  width: 150px;
+  text-align: center;
+  transition: background-color 0.3s;
 }
 
 .link:hover {
-  transform: skewX(-45deg) scale(1.05);
-}
-
-.link span {
-  transform: skewX(45deg);
+  background-color: #222;
 }
 
 a {
-  color: white;
+  color: var(--terminal-text);
   text-decoration: none;
 }
 
